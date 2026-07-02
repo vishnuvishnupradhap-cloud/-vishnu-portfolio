@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishnu Pradhap P — Data Scientist &amp; ML Engineer</title>
+<meta name="description" content="M.Sc. Data Science portfolio — machine learning, NLP and BI projects by Vishnu Pradhap P.">
+<meta property="og:title" content="Vishnu Pradhap P — Data Scientist &amp; ML Engineer">
+<meta property="og:description" content="I look for the point that doesn't belong — in transaction logs, legal text, and faces.">
+<meta property="og:image" content="link_preview_card.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="link_preview_card.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ECE9DE;
+    --paper-dim:#E1DDCE;
+    --paper-panel:#F4F2E9;
+    --ink:#1C2621;
+    --ink-soft:#586359;
+    --ink-faint:#8A9188;
+    --teal:#2E6E6A;
+    --crimson:#B23A48;
+    --amber:#B8862F;
+    --navy:#243349;
+    --line:#C9C4AF;
+    --line-soft:#DAD6C6;
+    --radius:2px;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 42px 42px;
+    background-attachment: fixed;
+  }
+
+  ::selection{ background:var(--amber); color:var(--paper); }
+
+  a{ color:inherit; }
+
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--teal);
+    font-weight:600;
+  }
+
+  h1,h2,h3{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    backdrop-filter: blur(6px);
+    background:rgba(236,233,222,0.86);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:16px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .monogram{
+    font-family:'Newsreader', serif;
+    font-style:italic;
+    font-size:22px;
+    border:1px solid var(--ink);
+    width:38px;height:38px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    flex-shrink:0;
+  }
+  nav.links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    padding:0;margin:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  nav.links a{
+    text-decoration:none;
+    position:relative;
+    padding-bottom:4px;
+    color:var(--ink-soft);
+    transition:color .2s;
+  }
+  nav.links a::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:0;
+    width:0%; height:1px;
+    background:var(--crimson);
+    transition:width .25s ease;
+  }
+  nav.links a:hover{ color:var(--ink); }
+  nav.links a:hover::after{ width:100%; }
+
+  @media (max-width:720px){
+    nav.links{ gap:14px; font-size:10px; }
+  }
+  @media (max-width:560px){
+    nav.links a span.full{ display:none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:72px 0 40px;
+  }
+  .hero-top{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media (max-width:900px){
+    .hero-top{ grid-template-columns:1fr; }
+  }
+  .hero h1{
+    font-size:clamp(42px, 7vw, 74px);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+  }
+  .hero .role{
+    margin-top:14px;
+    font-size:13px;
+  }
+  .hero p.tagline{
+    margin-top:26px;
+    font-size:clamp(17px, 2vw, 20px);
+    max-width:46ch;
+    color:var(--ink-soft);
+    font-family:'Newsreader', serif;
+    font-style:italic;
+  }
+  .hero-cta{
+    margin-top:34px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:13px 22px;
+    border:1px solid var(--ink);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--ink);
+    transition:background .2s, color .2s;
+  }
+  .btn.primary{ background:var(--ink); color:var(--paper); }
+  .btn.primary:hover{ background:var(--crimson); border-color:var(--crimson); }
+  .btn:not(.primary):hover{ background:var(--ink); color:var(--paper); }
+
+  /* scatter svg */
+  .scatter-holder{ position:relative; }
+  .scatter-holder svg{ width:100%; height:auto; display:block; }
+  .anomaly-dot{ animation: pulse 2.6s ease-in-out infinite; transform-origin: 720px 130px; }
+  @keyframes pulse{
+    0%,100%{ opacity:1; }
+    50%{ opacity:0.55; }
+  }
+  .anomaly-ring{ animation: ring 2.6s ease-out infinite; transform-origin: 720px 130px; }
+  @keyframes ring{
+    0%{ r:9; opacity:0.7; }
+    100%{ r:26; opacity:0; }
+  }
+  .traj-path{
+    stroke-dasharray: 6 6;
+    animation: dash 1.2s linear infinite;
+  }
+  @keyframes dash{ to{ stroke-dashoffset:-24; } }
+
+  /* ---------- SECTION shell ---------- */
+  section{ padding:96px 0; border-top:1px solid var(--line); }
+  section:first-of-type{ border-top:none; }
+  .section-head{ margin-bottom:44px; max-width:60ch; }
+  .section-head h2{ font-size:clamp(28px,4vw,38px); margin-top:10px; }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.visible{ opacity:1; transform:none; }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:56px;
+  }
+  @media (max-width:800px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-grid p{ color:var(--ink-soft); font-size:16.5px; }
+  .field-note{
+    background:var(--paper-panel);
+    border:1px solid var(--line);
+    padding:22px 24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    line-height:1.85;
+  }
+  .field-note .k{ color:var(--teal); }
+  .field-note .row{ display:flex; justify-content:space-between; gap:12px; border-bottom:1px dashed var(--line); padding:6px 0; }
+  .field-note .row:last-child{ border-bottom:none; }
+
+  /* ---------- SKILLS ---------- */
+  .skill-panels{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:700px){ .skill-panels{ grid-template-columns:1fr; } }
+  .skill-panel{ background:var(--paper); padding:26px 28px; }
+  .skill-panel h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--navy);
+    margin-bottom:16px;
+    font-weight:600;
+  }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    padding:6px 10px;
+    border:1px solid var(--line);
+    background:var(--paper-panel);
+    color:var(--ink-soft);
+    transition:border-color .2s, color .2s;
+  }
+  .chip:hover{ border-color:var(--teal); color:var(--ink); }
+
+  /* ---------- PROJECTS ---------- */
+  .cases{ display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); }
+  .case{
+    background:var(--paper);
+    padding:34px 32px;
+    display:grid;
+    grid-template-columns: 90px 1.4fr 1fr;
+    gap:28px;
+    transition:background .25s;
+  }
+  .case:hover{ background:var(--paper-panel); }
+  @media (max-width:820px){
+    .case{ grid-template-columns:1fr; gap:14px; }
+  }
+  .case-file{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-faint);
+  }
+  .case-file .num{ font-size:26px; color:var(--ink); display:block; font-weight:600; }
+  .case-tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:3px 8px;
+    margin-bottom:10px;
+    border:1px solid currentColor;
+  }
+  .tag-clf{ color:var(--crimson); }
+  .tag-nlp{ color:var(--teal); }
+  .tag-auto{ color:var(--amber); }
+  .tag-cv{ color:var(--navy); }
+  .case h3{ font-size:22px; margin-bottom:6px; }
+  .case .dates{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-faint); margin-bottom:10px; display:block;}
+  .case p{ color:var(--ink-soft); font-size:15px; margin:0 0 14px; }
+  .tools{ display:flex; flex-wrap:wrap; gap:6px; }
+  .tools span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--ink-soft);
+    background:var(--paper-dim);
+    padding:3px 7px;
+  }
+  .metric{
+    border-left:1px solid var(--line);
+    padding-left:24px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  @media (max-width:820px){ .metric{ border-left:none; border-top:1px dashed var(--line); padding:14px 0 0; } }
+  .metric .num{ font-family:'Newsreader', serif; font-size:36px; color:var(--crimson); line-height:1; }
+  .metric .lab{ font-family:'IBM Plex Mono', monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-faint); margin-top:6px; }
+
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  .timeline{ position:relative; padding-left:28px; border-left:1px solid var(--line); }
+  .tnode{ position:relative; padding-bottom:46px; }
+  .tnode:last-child{ padding-bottom:0; }
+  .tnode::before{
+    content:'';
+    position:absolute;
+    left:-33px; top:4px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--teal);
+  }
+  .tnode .dates{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-faint); }
+  .tnode h3{ font-size:20px; margin:4px 0 2px; }
+  .tnode .org{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--teal); margin-bottom:8px; display:block; }
+  .tnode p{ color:var(--ink-soft); font-size:15px; max-width:60ch; margin:0; }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-list{ display:flex; flex-direction:column; gap:26px; }
+  .edu-item{ display:grid; grid-template-columns:150px 1fr; gap:20px; }
+  @media (max-width:600px){ .edu-item{ grid-template-columns:1fr; gap:4px; } }
+  .edu-item .dates{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-faint); }
+  .edu-item h3{ font-size:19px; margin-bottom:3px; }
+  .edu-item .school{ color:var(--ink-soft); font-size:14.5px; margin-bottom:6px; display:block; }
+  .edu-item .coursework{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-faint); }
+
+  /* ---------- CERTS ---------- */
+  .cert-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:800px){ .cert-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .cert-grid{ grid-template-columns:1fr;} }
+  .cert{
+    background:var(--paper);
+    padding:22px 20px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .cert .seal{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    color:var(--amber);
+    letter-spacing:0.1em;
+  }
+  .cert strong{ color:var(--ink); font-weight:600; font-size:14.5px; }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    background:var(--ink);
+    color:var(--paper);
+    padding:88px 0 40px;
+  }
+  footer .wrap{ max-width:var(--maxw); }
+  .terminal{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14.5px;
+    line-height:2;
+  }
+  .terminal .prompt{ color:var(--teal); }
+  .terminal .k{ color:#D8CFAE; }
+  .copy-btn{
+    background:none; border:1px solid #4B564E; color:var(--paper);
+    font-family:'IBM Plex Mono', monospace; font-size:11px;
+    padding:2px 8px; margin-left:10px; cursor:pointer; letter-spacing:0.05em;
+    transition:border-color .2s, color .2s;
+  }
+  .copy-btn:hover{ border-color:var(--crimson); color:#fff; }
+  .footer-links{
+    margin-top:36px;
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+  }
+  .footer-links a{
+    text-decoration:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:#D8CFAE;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:border-color .2s, color .2s;
+  }
+  .footer-links a:hover{ color:#fff; border-color:var(--crimson); }
+  .foot-note{
+    margin-top:60px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:#5B665D;
+  }
+  #toast{
+    position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--ink); color:var(--paper); font-family:'IBM Plex Mono', monospace;
+    font-size:12px; padding:10px 18px; border:1px solid var(--teal);
+    opacity:0; pointer-events:none; transition:opacity .25s, transform .25s;
+    z-index:100;
+  }
+  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="monogram">V</div>
+    <nav class="links">
+      <a href="#about"><span class="full">01 </span>Profile</a>
+      <a href="#skills"><span class="full">02 </span>Stack</a>
+      <a href="#projects"><span class="full">03 </span>Case&nbsp;Files</a>
+      <a href="#experience"><span class="full">04 </span>Log</a>
+      <a href="#contact"><span class="full">05 </span>Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top" style="border-top:none;">
+  <div class="wrap hero-top">
+    <div>
+      <p class="eyebrow">Data Scientist &amp; ML Engineer</p>
+      <h1>Vishnu<br>Pradhap&nbsp;P</h1>
+      <p class="role mono">M.Sc. Data Science — The American College, Madurai</p>
+      <p class="tagline">I look for the point that doesn't belong — in transaction logs, legal text, and faces — and build the model that explains why it matters.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn primary">See the case files</a>
+        <a href="#contact" class="btn">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="scatter-holder" aria-hidden="true">
+      <svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="300" x2="600" y2="300" stroke="#B7B29C" stroke-width="1"/>
+        <text x="60" y="322" class="mono" font-size="10" fill="#8A9188" letter-spacing="1">CONVENTIONAL</text>
+        <text x="600" y="322" text-anchor="end" class="mono" font-size="10" fill="#8A9188" letter-spacing="1">DISTINCTIVE</text>
+
+        <!-- cluster: typical portfolios -->
+        <g fill="#8A9188" opacity="0.55">
+          <circle cx="120" cy="270" r="5"/>
+          <circle cx="150" cy="290" r="4"/>
+          <circle cx="170" cy="255" r="6"/>
+          <circle cx="140" cy="240" r="4"/>
+          <circle cx="185" cy="280" r="5"/>
+          <circle cx="105" cy="250" r="4"/>
+          <circle cx="200" cy="245" r="4"/>
+          <circle cx="160" cy="310" r="5"/>
+        </g>
+        <text x="150" y="215" class="mono" font-size="10" fill="#8A9188" letter-spacing="0.5">typical portfolios</text>
+
+        <!-- trajectory -->
+        <path class="traj-path" d="M195,265 C 340,190 500,150 500,130" fill="none" stroke="#B23A48" stroke-width="1.2" opacity="0.55"/>
+
+        <!-- anomaly -->
+        <circle class="anomaly-ring" cx="500" cy="130" r="9" fill="none" stroke="#B23A48" stroke-width="1.5"/>
+        <circle class="anomaly-dot" cx="500" cy="130" r="8" fill="#B23A48"/>
+        <text x="518" y="126" class="mono" font-size="12" font-weight="600" fill="#1C2621">VISHNU</text>
+        <text x="518" y="144" class="mono" font-size="10" fill="#B23A48" letter-spacing="0.5">ANOMALY SCORE 0.94</text>
+
+        <line x1="60" y1="40" x2="60" y2="300" stroke="#DAD6C6" stroke-width="1"/>
+        <text x="45" y="45" class="mono" font-size="9" fill="#8A9188" transform="rotate(-90 45 45)" text-anchor="end">SIGNAL</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">01 — Profile</p>
+      <h2>Trained to notice what's out of place.</h2>
+    </div>
+    <div class="about-grid reveal">
+      <p>
+        I'm an M.Sc. Data Science student who spends most of my time turning messy, real-world
+        data — UPI transaction logs, legal contracts, camera footage — into models that make a
+        defensible call. My work sits at the intersection of classical machine learning and the
+        BI layer that explains it to the people who actually make decisions: Scikit-learn on one
+        side, Power BI and DAX on the other.
+        <br><br>
+        I'm looking to bring that same instinct for pattern and anomaly to automation problems
+        at Devopstrio — building pipelines that don't just run, but flag the moment something
+        stops looking normal.
+      </p>
+      <div class="field-note">
+        <div class="row"><span class="k">location</span><span>Rajapalayam, Tamil Nadu, IN</span></div>
+        <div class="row"><span class="k">degree</span><span>M.Sc. Data Science, 2024–2026</span></div>
+        <div class="row"><span class="k">focus</span><span>ML, NLP, BI dashboards</span></div>
+        <div class="row"><span class="k">languages</span><span>English, Tamil</span></div>
+        <div class="row"><span class="k">status</span><span style="color:#2E6E6A;">open to opportunities</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">02 — Instrument Panel</p>
+      <h2>The stack I reach for.</h2>
+    </div>
+    <div class="skill-panels reveal">
+      <div class="skill-panel">
+        <h3>AI / ML</h3>
+        <div class="chip-row">
+          <span class="chip">Scikit-learn</span><span class="chip">Regression</span>
+          <span class="chip">Classification</span><span class="chip">Clustering</span>
+          <span class="chip">Feature Engineering</span><span class="chip">Model Evaluation</span>
+        </div>
+      </div>
+      <div class="skill-panel">
+        <h3>Python</h3>
+        <div class="chip-row">
+          <span class="chip">Pandas</span><span class="chip">NumPy</span>
+          <span class="chip">Matplotlib</span><span class="chip">Seaborn</span>
+          <span class="chip">EDA</span><span class="chip">Pipeline Building</span>
+        </div>
+      </div>
+      <div class="skill-panel">
+        <h3>Data &amp; BI</h3>
+        <div class="chip-row">
+          <span class="chip">SQL (MySQL)</span><span class="chip">Power BI</span>
+          <span class="chip">DAX</span><span class="chip">Data Modelling</span>
+          <span class="chip">Tableau</span><span class="chip">MongoDB</span>
+        </div>
+      </div>
+      <div class="skill-panel">
+        <h3>Tools</h3>
+        <div class="chip-row">
+          <span class="chip">Excel — PivotTables</span><span class="chip">VLOOKUP</span>
+          <span class="chip">Jupyter Notebook</span><span class="chip">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">03 — Case Files</p>
+      <h2>Four problems, in the order I solved them.</h2>
+    </div>
+
+    <div class="cases reveal">
+
+      <div class="case">
+        <div class="case-file"><span class="num">01</span>2023–24</div>
+        <div>
+          <span class="case-tag tag-auto">Automation</span>
+          <h3>Courier Management System</h3>
+          <span class="dates">Dec 2023 – Mar 2024</span>
+          <p>Automated parcel tracking and status reporting for a courier workflow, replacing manual data-entry with a structured MySQL-backed system.</p>
+          <div class="tools"><span>Python</span><span>MySQL</span></div>
+        </div>
+        <div class="metric">
+          <span class="num">0</span>
+          <span class="lab">manual entry steps left</span>
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-file"><span class="num">02</span>2024–25</div>
+        <div>
+          <span class="case-tag tag-clf">Classifier</span>
+          <h3>UPI Transaction Anomaly Detection</h3>
+          <span class="dates">Dec 2024 – Apr 2025</span>
+          <p>Built a binary classification model to flag suspicious UPI transactions, training and validating across a dataset of 10,000+ records.</p>
+          <div class="tools"><span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>Seaborn</span></div>
+        </div>
+        <div class="metric">
+          <span class="num">88%</span>
+          <span class="lab">detection accuracy</span>
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-file"><span class="num">03</span>2025–26</div>
+        <div>
+          <span class="case-tag tag-nlp">NLP Pipeline</span>
+          <h3>Legal Document Analysis</h3>
+          <span class="dates">Dec 2025 – Mar 2026</span>
+          <p>Combined NLP and classical ML to classify legal document types automatically, and to surface key clauses and risk patterns for faster review.</p>
+          <div class="tools"><span>Python</span><span>NLP</span><span>Scikit-learn</span></div>
+        </div>
+        <div class="metric">
+          <span class="num">2</span>
+          <span class="lab">stages — classify, then flag risk</span>
+        </div>
+      </div>
+
+      <div class="case">
+        <div class="case-file"><span class="num">04</span>2026</div>
+        <div>
+          <span class="case-tag tag-cv">Computer Vision</span>
+          <h3>Person Identification &amp; Verification</h3>
+          <span class="dates">2026</span>
+          <p>Built a face detection and recognition system to identify and verify individuals from image and video input.</p>
+          <div class="tools"><span>Python</span><span>OpenCV</span></div>
+        </div>
+        <div class="metric">
+          <span class="num">1:1</span>
+          <span class="lab">detection to verification</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">04 — Field Log</p>
+      <h2>Where I've worked so far.</h2>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="tnode">
+        <span class="dates mono">May – Jun 2025</span>
+        <h3>Data Science Intern</h3>
+        <span class="org">Dot Com Infoway</span>
+        <p>Built Python data pipelines to clean and transform datasets for weekly business reporting.</p>
+      </div>
+      <div class="tnode">
+        <span class="dates mono">Aug – Sep 2025</span>
+        <h3>Data Analytics Trainee</h3>
+        <span class="org">Besant Technologies</span>
+        <p>Applied SQL and Power BI (DAX) to build interactive data models and reporting dashboards.</p>
+      </div>
+      <div class="tnode">
+        <span class="dates mono">23 May – 23 Jun 2026</span>
+        <h3>AI/ML Intern</h3>
+        <span class="org">Cognifyz IT Solutions Pvt Ltd</span>
+        <p>Assisted in building and testing machine learning models for real-world business applications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">05 — Education</p>
+      <h2>Coursework and credentials.</h2>
+    </div>
+    <div class="edu-list reveal">
+      <div class="edu-item">
+        <span class="dates">Jul 2024 – Apr 2026</span>
+        <div>
+          <h3>M.Sc. Data Science</h3>
+          <span class="school">The American College, Madurai</span>
+          <span class="coursework">Machine Learning · Data Mining · Statistical Analysis · Big Data Analytics</span>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="dates">Jul 2021 – Apr 2024</span>
+        <div>
+          <h3>B.Sc. Computer Science</h3>
+          <span class="school">The American College, Madurai</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section id="certs">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">06 — Certifications</p>
+      <h2>Verified along the way.</h2>
+    </div>
+    <div class="cert-grid reveal">
+      <div class="cert"><span class="seal">VERIFIED</span><strong>Career Essentials in Data Analytics</strong>Microsoft &amp; LinkedIn Learning</div>
+      <div class="cert"><span class="seal">VERIFIED</span><strong>Getting Started with MongoDB</strong>MongoDB University</div>
+      <div class="cert"><span class="seal">VERIFIED</span><strong>Power BI &amp; SQL Course</strong>Besant Technologies</div>
+      <div class="cert"><span class="seal">VERIFIED</span><strong>Tableau Participant Certificate</strong>ICT Academy</div>
+      <div class="cert"><span class="seal">VERIFIED</span><strong>Data Analytics Certificate</strong>NoviTech R&amp;D Private Limited</div>
+      <div class="cert"><span class="seal">VERIFIED</span><strong>AI/ML Internship Certificate</strong>Cognifyz IT Solutions Pvt Ltd</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT / FOOTER ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#8FBDB9;">07 — Contact</p>
+    <h2 style="color:#F4F2E9; font-size:clamp(26px,4vw,36px); margin-top:10px;">Open to ML, data science &amp; automation roles.</h2>
+
+    <div class="terminal" style="margin-top:32px;">
+      <div><span class="prompt">$</span> contact <span class="k">--email</span> <a href="mailto:vishnupradhap57@gmail.com" style="color:#F4F2E9;">vishnupradhap57@gmail.com</a><button class="copy-btn" data-copy="vishnupradhap57@gmail.com">copy</button></div>
+      <div><span class="prompt">$</span> contact <span class="k">--phone</span> +91 9363141904</div>
+      <div><span class="prompt">$</span> contact <span class="k">--location</span> Rajapalayam, Tamil Nadu</div>
+    </div>
+
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/vishnu-pradhap-p-9a747331b" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://github.com/vishnupradhap-cloud" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="mailto:vishnupradhap57@gmail.com">Email ↗</a>
+    </div>
+
+    <p class="foot-note">© 2026 Vishnu Pradhap P. Built as a scatter plot, not a template.</p>
+  </div>
+</footer>
+
+<div id="toast" role="status">Copied to clipboard</div>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el=>io.observe(el));
+
+  // Copy email
+  const toast = document.getElementById('toast');
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const text = btn.getAttribute('data-copy');
+      try{
+        await navigator.clipboard.writeText(text);
+      }catch(e){
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+      }
+      toast.classList.add('show');
+      setTimeout(()=>toast.classList.remove('show'), 1800);
+    });
+  });
+</script>
+
+</body>
+</html>
